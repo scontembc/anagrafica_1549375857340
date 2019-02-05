@@ -5,10 +5,13 @@ import { CanActivate, RouterModule, Routes } from '@angular/router';
 /* START MY VIEWS IMPORT */
 // Do not edit this comment content, it will be overwritten in next Skaffolder generation
 import { HomeComponent} from './pages/home/home.component';
-import { CompanyComponent} from './pages/company/company.component';
 import { CompanyEditComponent} from './pages/company-edit/company-edit.component';
+import { CompanyListComponent} from './pages/company-list/company-list.component';
 import { ContactDetailComponent} from './pages/contact-detail/contact-detail.component';
 import { ContactEditComponent} from './pages/contact-edit/contact-edit.component';
+import { ContactListComponent} from './pages/contact-list/contact-list.component';
+import { UserEditComponent} from './pages/user-edit/user-edit.component';
+import { UserListComponent} from './pages/user-list/user-list.component';
 
 /* END MY VIEWS IMPORT */
 
@@ -27,11 +30,16 @@ const routes: Routes = [
 
     /* START MY VIEWS */
 
-    { path: 'company',  loadChildren: './pages/company/company.module#CompanyModule'  },
     { path: 'company/:id',  loadChildren: './pages/company-edit/company-edit.module#CompanyEditModule'  },
+    { path: 'companys/:id',  loadChildren: './pages/company-edit/company-edit.module#CompanyEditModule' , canActivate: [AuthGuard] },
+    { path: 'companys',  loadChildren: './pages/company-list/company-list.module#CompanyListModule'  },
     { path: 'contacts/:id/detail',  loadChildren: './pages/contact-detail/contact-detail.module#ContactDetailModule'  },
     { path: 'contacts/:id',  loadChildren: './pages/contact-edit/contact-edit.module#ContactEditModule'  },
-    { path: 'home',  loadChildren: './pages/home/home.module#HomeModule'  },
+    { path: 'contacts/:id',  loadChildren: './pages/contact-edit/contact-edit.module#ContactEditModule' , canActivate: [AuthGuard] },
+    { path: 'contacts',  loadChildren: './pages/contact-list/contact-list.module#ContactListModule'  },
+    { path: 'home',  loadChildren: './pages/home/home.module#HomeModule' , canActivate: [AuthGuard] },
+    { path: 'users/:id',  loadChildren: './pages/user-edit/user-edit.module#UserEditModule' , canActivate: [AuthGuard] },
+    { path: 'users',  loadChildren: './pages/user-list/user-list.module#UserListModule' , canActivate: [AuthGuard] },
 
  /* END MY VIEWS */
 

@@ -6,19 +6,26 @@ import { ContactService } from '../../services/contact.service';
 import { Contact } from '../../domain/my-contacts_db/contact';
 
 // START - USED SERVICES
-
+/**
+* ContactService.delete
+*	@description CRUD ACTION delete
+*
+* ContactService.list
+*	@description CRUD ACTION list
+*
+*/
 // END - USED SERVICES
 
 /**
  * This component shows a list of Contact
- * @class HomeComponent
+ * @class ContactListComponent
  */
 @Component({
-    selector: 'app-home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.css']
+    selector: 'app-contact-list',
+    templateUrl: './contact-list.component.html',
+    styleUrls: ['./contact-list.component.css']
 })
-export class HomeComponent implements OnInit {
+export class ContactListComponent implements OnInit {
     list: Contact[];
     search: any = {};
     idSelected: string;
